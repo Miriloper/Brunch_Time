@@ -1,3 +1,9 @@
 .logo {
   display: block;
+  /* ¿habría que hacerlo relativo? para que el canvas encima*/
+  position: relative;
+}
+
+#myCanvas {
+  position: absolute;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BRUNCH TIME</title>
+    <script type="text/javascript" src="checkWords.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="init.js"></script>
   
@@ -17,8 +18,15 @@
         <img src="./images/79f6099ce5485ff5504e279a161df26c.jpg" alt="brunch_logo" class="logo">
         <button id="start-button">START</button>
         <p>INSTRUCTIONS</p>
-        <img src="x" alt="" class="">
+        <!-- <img src="x" alt="" class=""> -->
     </div>
+    <table>
+        <tr><td>Key:</td><td id="key"></td></tr>
+        <tr><td>Key Code:</td><td id="keyCode"></td></tr>
+        <tr><td>Word:</td><td id="word"></td></tr>
+         <tr><td>EnterResult:</td><td id="resultEnt"></td></tr>
+           <tr><td>OKWords:</td><td id="wordsOK"></td></tr>
+        </table>
     <div>
         <canvas id="myCanvas"></canvas>
     </div>

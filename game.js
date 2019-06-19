@@ -5,15 +5,21 @@ class Game {
     this.counter=0
     this.canvas = ""
     this.ctx =""
-    this.w = innerWidtht
-    this.h = innerHeight
+    this.w = window.innerWidth
+    this.h = window.innerHeight
+    this.imgBackg = new Image();
+    this.imgBackg.src = "./images/lemons.jpg";
     // this.img = new Image();
     // this.img.src = "images/car.png";
     // this.key = 39;
     // this.obstacles = [];
   }
-  init = () => {
+  init = (id) => {
     this.canvas = document.getElementById(id);
+    this.canvas.width = this.w
+    this.canvas.height = this.h
+    // this.canvas.x = 0;
+    // this.canvas.y = 0;
     this.ctx= this.canvas.getContext("2d");
     this.start();
   }
@@ -37,8 +43,7 @@ class Game {
     this.drawBackground()
   }
   drawBackground = ()=>{
-    this.img = new Image()
-    this.img.src = ;
+    this.ctx.drawImage(this.imgBackg, 0,0, this.w, this.h);
   }
   listener = ()=>{
 
@@ -61,3 +66,19 @@ class Game {
     // }
   }
 }
+
+
+
+
+
+
+
+// TIPS: 
+//class nubes en js, prop: texto, img, 
+
+
+
+
+
+
+
