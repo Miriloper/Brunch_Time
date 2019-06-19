@@ -41,6 +41,7 @@ class Game {
   }
   draw = ()=>{
     this.drawBackground()
+    this.ctx.draw = document.getElementById("canvasTests");
   }
   drawBackground = ()=>{
     this.ctx.drawImage(this.imgBackg, 0,0, this.w, this.h);

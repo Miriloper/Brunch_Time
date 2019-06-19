@@ -1,9 +1,21 @@
-.logo {
+
+
+#menuGame {
+  position: absolute;
   display: block;
-  /* ¿habría que hacerlo relativo? para que el canvas encima*/
+}
+
+.menuItems {
+  display: block;
   position: relative;
 }
 
-#myCanvas {
+#canvasTests {
   position: absolute;
+  bottom: 100px;
+} 
+
+#canvasElem {
+  display: none;
 }
+

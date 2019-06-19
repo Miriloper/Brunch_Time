@@ -11,25 +11,33 @@
     <script type="text/javascript" src="init.js"></script>
   
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    
 </head>
 
 <body>
-    <div>
-        <img src="./images/79f6099ce5485ff5504e279a161df26c.jpg" alt="brunch_logo" class="logo">
-        <button id="start-button">START</button>
+
+    <section id="menuGame">
+    <div class="menuItems">
+        <img src="./images/79f6099ce5485ff5504e279a161df26c.jpg" alt="brunch_logo">
+        <button id="start-button" class="menuItems">START</button>
         <p>INSTRUCTIONS</p>
         <!-- <img src="x" alt="" class=""> -->
     </div>
-    <table>
-        <tr><td>Key:</td><td id="key"></td></tr>
-        <tr><td>Key Code:</td><td id="keyCode"></td></tr>
-        <tr><td>Word:</td><td id="word"></td></tr>
-         <tr><td>EnterResult:</td><td id="resultEnt"></td></tr>
-           <tr><td>OKWords:</td><td id="wordsOK"></td></tr>
-        </table>
-    <div>
+    
+    </section>
+    <section id="canvasElem">
         <canvas id="myCanvas"></canvas>
-    </div>
+        <table id="canvasTests">
+                <tr><td>Key:</td><td id="key"></td></tr>
+                <tr><td>Key Code:</td><td id="keyCode"></td></tr>
+                <tr><td>Word:</td><td id="word"></td></tr>
+                <tr><td>EnterResult:</td><td id="resultEnt"></td></tr>
+                <tr><td>OKWords:</td><td id="wordsOK"></td></tr>
+        </table>
+    </section>
+    
+
 </body>
 
 </html>

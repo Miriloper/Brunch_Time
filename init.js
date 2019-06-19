@@ -1,6 +1,8 @@
 var game = new Game ()
 window.onload = function() {
   document.getElementById("start-button").onclick = function() {
+    document.getElementById("menuGame").style.display = "none";
+    document.getElementById("canvasElem").style.display = "block";
     startGame();
   };
 
