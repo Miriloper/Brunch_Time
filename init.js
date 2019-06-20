@@ -1,3 +1,4 @@
+
 var game = new Game ()
 window.onload = function() {
   document.getElementById("start-button").onclick = function() {
@@ -7,6 +8,8 @@ window.onload = function() {
   };
 
   startGame = ()=>{
+    console.log(data)
+    //importar el json
     game.init("myCanvas");
   }
 }

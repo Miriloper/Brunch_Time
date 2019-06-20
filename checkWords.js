@@ -1,5 +1,5 @@
 let word = ""
-let wordClouds = ["banana", "apple", "bagel"] //clouds en pantalla
+let wordClouds = data.map(dat => dat.name); //nombres de clouds en pantalla
 let filtClouds = [];
 
 window.addEventListener("keydown", function (e) {

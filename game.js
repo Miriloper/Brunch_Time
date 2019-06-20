@@ -4,7 +4,7 @@ class Game {
     this.fps=60
     this.counter=0
     this.canvas = ""
-    this.ctx =""
+    this.ctx = ""
     this.w = window.innerWidth
     this.h = window.innerHeight
     this.imgBackg = new Image();
@@ -24,14 +24,20 @@ class Game {
     this.start();
   }
   start = () => {
-    this.intervalId = setInterval(()=>{
+      this.reset();
+      this.intervalId = setInterval(()=>{
       this.counter++;
       this.clear();
       this.draw();
-      this.listener();
+      // this.listener();
       //this.cosasQuePasanCuandoPasanLosSegundos
     },1000/this.fps)
   }
+  reset = () => {
+            // this.foodItems = new foodItems(this.ctx)
+    this.counter = 0;
+  }
+
   clear = () =>{
     this.ctx.clearRect(0, 0, this.w, this.h);
   }
@@ -42,29 +48,13 @@ class Game {
   draw = ()=>{
     this.drawBackground()
     this.ctx.draw = document.getElementById("canvasTests");
+    this.ctx.drawFoodClouds()
+            // this.ctx.drawFoodCloud1(this.ctx)
+            // this.ctx.drawFoodCloud2(this.ctx)
+            // this.ctx.drawFoodCloud3(this.ctx)
   }
   drawBackground = ()=>{
     this.ctx.drawImage(this.imgBackg, 0,0, this.w, this.h);
-  }
-  listener = ()=>{
-
-
-
-    // document.onkeydown = (e) => {
-    //   e.preventDefault();
-    //   switch (e.keyCode) {
-    //     case this.key_left:
-    //       if (this.xCar >= 40) {
-    //         this.xCar -= 10;
-    //         break;
-    //       }
-    //     case this.key_right:
-    //       if (this.xCar <= 380) {
-    //         this.xCar += 10;
-    //         break;
-    //       }
-    //   }
-    // }
   }
 }
 
@@ -74,12 +64,22 @@ class Game {
 
 
 
-// TIPS: 
-//class nubes en js, prop: texto, img, 
 
 
-
-
-
-
-
+  // listener = ()=>{
+  //   // document.onkeydown = (e) => {
+  //   //   e.preventDefault();
+  //   //   switch (e.keyCode) {
+  //   //     case this.key_left:
+  //   //       if (this.xCar >= 40) {
+  //   //         this.xCar -= 10;
+  //   //         break;
+  //   //       }
+  //   //     case this.key_right:
+  //   //       if (this.xCar <= 380) {
+  //   //         this.xCar += 10;
+  //   //         break;
+  //   //       }
+  //   //   }
+  //   // }
+  // }
