@@ -27,14 +27,15 @@ class Game {
     this.start();
   }
   start = () => {
-      this.reset();
-      this.intervalId = setInterval(()=>{
+    this.reset();
+    this.intervalId = setInterval(()=>{
         this.counter++;
         this.clear();
         this.draw();
-        if (this.counter % 100 == 0) {
-        this.generateFood();
-      }
+        if (this.counter % 200 == 0) {
+          this.generateFood();
+        }
+        this.moveAll();
       // this.listener();
       //this.cosasQuePasanCuandoPasanLosSegundos
     },1000/this.fps)
@@ -80,6 +81,12 @@ class Game {
     this.flyItemsArr.forEach((flyItem)=>{
       flyItem.drawFoodsClouds();
     })
+  }
+
+  moveAll = () => {
+    this.flyItemsArr.forEach(function(flyItem) {
+        flyItem.moveFoodsClouds();
+      });
   }
 }
 
