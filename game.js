@@ -9,32 +9,37 @@ class Game {
     this.h = window.innerHeight
     this.imgBackg = new Image();
     this.imgBackg.src = "./images/lemons.jpg";
+    this.flyItemsArr = []
+    this.thisData = [...data]
+    this.thisData = this.shuffleFoods(this.thisData)
+    this.arrCounter = 0
     // this.img = new Image();
     // this.img.src = "images/car.png";
-    // this.key = 39;
     // this.obstacles = [];
   }
   init = (id) => {
     this.canvas = document.getElementById(id);
     this.canvas.width = this.w
     this.canvas.height = this.h
-    // this.canvas.x = 0;
-    // this.canvas.y = 0;
     this.ctx= this.canvas.getContext("2d");
+
+
     this.start();
   }
   start = () => {
       this.reset();
       this.intervalId = setInterval(()=>{
-      this.counter++;
-      this.clear();
-      this.draw();
+        this.counter++;
+        this.clear();
+        this.draw();
+        if (this.counter % 100 == 0) {
+        this.generateFood();
+      }
       // this.listener();
       //this.cosasQuePasanCuandoPasanLosSegundos
     },1000/this.fps)
   }
   reset = () => {
-            // this.foodItems = new foodItems(this.ctx)
     this.counter = 0;
   }
 
@@ -48,13 +53,33 @@ class Game {
   draw = ()=>{
     this.drawBackground()
     this.ctx.draw = document.getElementById("canvasTests");
-    this.ctx.drawFoodClouds()
+    this.drawClouds()
             // this.ctx.drawFoodCloud1(this.ctx)
             // this.ctx.drawFoodCloud2(this.ctx)
             // this.ctx.drawFoodCloud3(this.ctx)
   }
+
   drawBackground = ()=>{
     this.ctx.drawImage(this.imgBackg, 0,0, this.w, this.h);
+  }
+
+  shuffleFoods= (a) => {
+      for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+  }
+
+  generateFood = () => {
+    this.flyItemsArr.push(new FlyItems(this.ctx, this.thisData[this.arrCounter]))
+    this.arrCounter++;
+  }
+
+  drawClouds = () => {
+    this.flyItemsArr.forEach((flyItem)=>{
+      flyItem.drawFoodsClouds();
+    })
   }
 }
 

@@ -1,12 +1,11 @@
-class flyItems {
-  constructor(ctx, src) {
+class FlyItems{
+  constructor(ctx, info) {
     this.ctx =ctx
-    this.typeFood = data.map((dat) => (dat.image));
-    //OJO CUIDAO! no sé si habrá que 
-    //meter el idx después o valdrá con cogerlo luego para que no se descuageringue el orden de palabras e imágenes.
-    //this.typeFood = foods.map(dat => ({image: dat.name, index: dat.index}));
+    this.info = info
 
-    this.x = 100; //esto tendrá que empezar en negativo del camvasX
+    this.typeFood = data.map((dat) => (dat.image));
+
+    this.x = 100; //esto tendrá que empezar en negativo del canvasX e ir sumando con el tiempo(counter?)
     this.y = 150; //esta tendrá que variar en cada CLOUD (he hecho 76 comidas 
     //              para que sean multiplos de 4 y así encajen en nubes y termine
     //              la última nube(4) con la última comida)
@@ -17,9 +16,9 @@ class flyItems {
   }
   //methods
   drawFoodsClouds = () => {
-    this.ctx.drawImage(this.typeFood, this.x, this.y, this.w, this.h);
-
-    this.ctx.fillText("banana",this.x, this.y);
+  //  this.ctx.drawImage(this.typeFood, this.x, this.y, this.w, this.h);
+    this.ctx.font = '48px serif';
+    this.ctx.fillText(this.info.name,this.x, this.y);
   }
 
   // drawFoodsCloud2 = (ctx) => {
