@@ -305,6 +305,36 @@ let data = [
     index: 60
   },
   {
+    name: "sushi",
+    image: "src(images/pomelo2.jpg)",
+    index: 61
+  },
+  {
+    name: "fresh fruit",
+    image: "src(images/lemons.jpg)",
+    index: 62
+  },
+  {
+    name: "milk",
+    image: "src(images/breakfastHoneyGarden.jpg)",
+    index: 63
+  },
+  {
+    name: "honey",
+    image: "src(images/pomelo2.jpg)",
+    index: 64
+  },
+  {
+    name: "tabasco",
+    image: "src(images/lemons.jpg)",
+    index: 65
+  },
+  {
+    name: "spinach and cheese quiche",
+    image: "src(images/breakfastHoneyGarden.jpg)",
+    index: 66
+  },
+  {
     name: "cookie dough cheesecake",
     image: "src(images/pomelo2.jpg)",
     index: 67
@@ -348,10 +378,5 @@ let data = [
     name: "pecan pie",
     image: "src(images/breakfastHoneyGarden.jpg)",
     index: 75
-  },
-  {
-    name: "spinach and cheese quiche",
-    image: "src(images/breakfastHoneyGarden.jpg)",
-    index: 76
   },
 ]

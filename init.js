@@ -9,7 +9,6 @@ window.onload = function() {
 
   startGame = ()=>{
     console.log(data)
-    //importar el json
     game.init("myCanvas");
   }
 }

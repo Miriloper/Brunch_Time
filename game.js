@@ -13,10 +13,8 @@ class Game {
     this.thisData = [...data]
     this.thisData = this.shuffleFoods(this.thisData)
     this.arrCounter = 0
-    // this.img = new Image();
-    // this.img.src = "images/car.png";
-    // this.obstacles = [];
   }
+
   init = (id) => {
     this.canvas = document.getElementById(id);
     this.canvas.width = this.w
@@ -26,20 +24,21 @@ class Game {
 
     this.start();
   }
+
   start = () => {
     this.reset();
     this.intervalId = setInterval(()=>{
         this.counter++;
         this.clear();
         this.draw();
-        if (this.counter % 200 == 0) {
+        if (this.counter % 120 == 0 && this.arrCounter < 76) {
           this.generateFood();
         }
         this.moveAll();
-      // this.listener();
-      //this.cosasQuePasanCuandoPasanLosSegundos
+  
     },1000/this.fps)
   }
+
   reset = () => {
     this.counter = 0;
   }
@@ -55,9 +54,6 @@ class Game {
     this.drawBackground()
     this.ctx.draw = document.getElementById("canvasTests");
     this.drawClouds()
-            // this.ctx.drawFoodCloud1(this.ctx)
-            // this.ctx.drawFoodCloud2(this.ctx)
-            // this.ctx.drawFoodCloud3(this.ctx)
   }
 
   drawBackground = ()=>{
@@ -73,45 +69,47 @@ class Game {
   }
 
   generateFood = () => {
-    this.flyItemsArr.push(new FlyItems(this.ctx, this.thisData[this.arrCounter]))
+    this.flyItemsArr.push(
+      new FlyItems(
+        this.ctx,
+        this.thisData[this.arrCounter],
+        Math.floor((Math.random() * (500 - 100 + 1) + 100))
+      )
+    );
     this.arrCounter++;
+    // viewData.push(this.thisData[this.arrCounter])
   }
 
   drawClouds = () => {
-    this.flyItemsArr.forEach((flyItem)=>{
-      flyItem.drawFoodsClouds();
-    })
+  //  if (this.thisData !== 0) 
+      this.flyItemsArr.forEach((flyItem)=>{
+        flyItem.drawFoodsClouds();
+      })
   }
 
   moveAll = () => {
-    this.flyItemsArr.forEach(function(flyItem) {
-        flyItem.moveFoodsClouds();
-      });
+    // if (this.flyItemsArr !== 0)
+      this.flyItemsArr.forEach(function(flyItem) {
+          flyItem.moveFoodsClouds()
+        });
+      this.flyItemsArr = this.flyItemsArr.filter(paco=>{
+        return paco.x<this.w+20
+      })
+    
   }
+
+  checkWord = (word) => {
+    this.flyItemsArr.forEach((paco, index) => {
+      if(paco.info.name === word){
+        paco.autodestruccion()
+        setTimeout(() => {
+          this.flyItemsArr.splice(index,1)
+        }, 3000)
+      }
+    });
+  }
+
 }
 
 
-
-
-
-
-
-
-
-  // listener = ()=>{
-  //   // document.onkeydown = (e) => {
-  //   //   e.preventDefault();
-  //   //   switch (e.keyCode) {
-  //   //     case this.key_left:
-  //   //       if (this.xCar >= 40) {
-  //   //         this.xCar -= 10;
-  //   //         break;
-  //   //       }
-  //   //     case this.key_right:
-  //   //       if (this.xCar <= 380) {
-  //   //         this.xCar += 10;
-  //   //         break;
-  //   //       }
-  //   //   }
-  //   // }
-  // }
+//TIPS: cuando supere la x me los cargo los elimino del array (puede dar error por estar recorriéndolo)

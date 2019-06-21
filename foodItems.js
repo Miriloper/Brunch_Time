@@ -1,48 +1,47 @@
 class FlyItems{
-  constructor(ctx, info) {
+  constructor(ctx, info, posY) {
     this.ctx =ctx
     this.info = info
+    this.posY = posY
 
     this.typeFood = data.map((dat) => (dat.image));
 
-    this.x = -10; //esto tendrá que empezar en negativo del canvasX e ir sumando con el tiempo(counter?)
-    this.y = 150; //esta tendrá que variar en cada CLOUD (he hecho 76 comidas 
-    //              para que sean multiplos de 4 y así encajen en nubes y termine
-    //              la última nube(4) con la última comida)
-    this.dx = 5;
+    this.x = -550; //esto tendrá que empezar en negativo del canvasX e ir sumando con el tiempo(counter?)
+    this.y = 150; //esta tendrá que variar en cada CLOUD 
+    this.dx = 4;
+    this.dy = 2;
     this.w = 340;
     this.h = 220;
+    this.onMove = true
 
+    this.imgFood = new Image();
+    //this.imgFood.src = this.info.image;
 
   }
   //methods
   drawFoodsClouds = () => {
-  //  this.ctx.drawImage(this.typeFood, this.x, this.y, this.w, this.h);
+    this.y = this.posY
+    //this.ctx.drawImage(this.imgFood, this.x, this.y, this.w, this.h);
     this.ctx.font = '48px serif';
     this.ctx.fillText(this.info.name,this.x, this.y);
   }
 
   moveFoodsClouds = () => {
+    if (this.onMove){
       this.x += this.dx;
+    }
+    else {
+      console.log(this.dy, this.y, this.posY)
+      this.dy *= 1.05;
+      this.posY += this.dy;
+    }
   }
-  // drawFoodsCloud2 = (ctx) => {
-  //   this.drawImage
-  // }
 
-  // drawFoodsCloud3 = (ctx) => {
-  //   this.drawImage
-  // }
+  autodestruccion = () => {
+    this.onMove = false
+    this.info.name = ""
+    //this.imgFood
+    //crea image(this.imgFood) y la hago caer
+  }
+
 }
-
-
-
-
-
-
-
-  // this.imgBackg = new Image();
-  // this.imgBackg.src = "";
-  // this.img = new Image();
-  // this.img.src = src;
-  // this.key = 39;
-  // this.obstacles = [];

@@ -1,21 +1,72 @@
-
-
 #menuGame {
   position: absolute;
-  display: block;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .menuItems {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  align-items: center;
+  justify-content: top;
 }
+
+#start-button {
+  background: rgb(238, 70, 129, 0.7);
+  margin: 20px 0;
+  height: 80px;
+  width: 240px;
+  justify-content: center;
+  font-weight: bolder;
+  color: white;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 2px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.welcome {
+  justify-content: center;
+  font-weight: bolder;
+  color: rgb(115, 226, 169);
+  font-size: 30px;
+  font-family: monospace;
+  border: 2px;
+  border-radius: 5px;
+  text-align: center;
+}
+
 
 #canvasTests {
   position: absolute;
   bottom: 100px;
 } 
 
+#word {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  bottom: 100px;
+  text-align: center;
+  text-justify: center;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  border-color: white;
+  border-width: 10;
+  bottom: 10px;
+  width: 100vw;
+  height: 70px;
+  font-size: 30px;
+  
+}
+
 #canvasElem {
   display: none;
 }
+
 
