@@ -68,7 +68,7 @@ class Game {
 
   drawScore = () => {
     this.ctx.fillText(this.score, 50, 50)
-    if (this.score >= 150) {
+    if (this.score >= 15) {
       this.stop()
 
     this.ctx.beginPath();
@@ -78,11 +78,11 @@ class Game {
     this.ctx.closePath();
     
     this.ctx.font = '60px serif';
-    this.ctx.fillText("YOU WIN!", this.w/2 + 150, this.h/2 -15)
+    this.ctx.fillText("YOU FAT! :)", this.w/2 + 165, this.h/2 -15)
 
 
     }
-    if (this.counter == 220000/this.fps) {
+    if (this.counter == 189000/this.fps) {
 
     this.stop()
 
@@ -92,8 +92,8 @@ class Game {
     this.ctx.fillStyle = "#33FFB2";
     this.ctx.closePath();
     
-    this.ctx.font = '60px serif';
-    this.ctx.fillText("YOU LOSE :(", this.w/2 + 150, this.h/2 -15)
+    this.ctx.font = '50px serif';
+    this.ctx.fillText("STILL HUNGRY! :(", this.w/2 + 215, this.h/2 -15)
 
 
     }
