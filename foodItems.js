@@ -31,7 +31,6 @@ class FlyItems{
       this.x += this.dx;
     }
     else {
-      console.log(this.dy, this.y, this.posY)
       this.dy *= 1.05;
       this.posY += this.dy;
     }
@@ -43,7 +42,6 @@ class FlyItems{
     //this.imgFood
     //crea image(this.imgFood) y la hago caer
 
-    scoreAsc(this.info.name.length);
   }
 
 }
