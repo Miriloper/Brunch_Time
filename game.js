@@ -68,8 +68,34 @@ class Game {
 
   drawScore = () => {
     this.ctx.fillText(this.score, 50, 50)
-    if (this.score >= 10) {
+    if (this.score >= 150) {
       this.stop()
+
+    this.ctx.beginPath();
+    this.ctx.rect(this.w/3, this.h/3 - 50, 500, 300)
+    this.ctx.fill();
+    this.ctx.fillStyle = "#33FFB2";
+    this.ctx.closePath();
+    
+    this.ctx.font = '60px serif';
+    this.ctx.fillText("YOU WIN!", this.w/2 + 150, this.h/2 -15)
+
+
+    }
+    if (this.counter == 220000/this.fps) {
+
+    this.stop()
+
+    this.ctx.beginPath();
+    this.ctx.rect(this.w/3, this.h/3 - 50, 500, 300)
+    this.ctx.fill();
+    this.ctx.fillStyle = "#33FFB2";
+    this.ctx.closePath();
+    
+    this.ctx.font = '60px serif';
+    this.ctx.fillText("YOU LOSE :(", this.w/2 + 150, this.h/2 -15)
+
+
     }
   }
 
@@ -86,7 +112,7 @@ class Game {
       new FlyItems(
         this.ctx,
         this.thisData[this.arrCounter],
-        Math.floor((Math.random() * (500 - 100 + 1) + 100))
+        Math.floor((Math.random() * (500 - 100 + 30) + 100))
       )
     );
     this.arrCounter++;
@@ -106,7 +132,7 @@ class Game {
           flyItem.moveFoodsClouds()
         });
       this.flyItemsArr = this.flyItemsArr.filter(paco=>{
-        return paco.x<this.w+20
+        return paco.x<this.w+280
       })
     
   }
@@ -117,7 +143,7 @@ class Game {
         paco.autodestruccion()
         setTimeout(() => {
           this.flyItemsArr.splice(index,1)
-        }, 3000)
+        }, 5000)
         this.score += word.length;
       }
     });

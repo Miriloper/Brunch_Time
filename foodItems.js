@@ -15,15 +15,16 @@ class FlyItems{
     this.onMove = true
 
     this.imgFood = new Image();
-    //this.imgFood.src = this.info.image;
+    this.imgFood.src = this.info.image;
 
   }
   //methods
   drawFoodsClouds = () => {
     this.y = this.posY
-    //this.ctx.drawImage(this.imgFood, this.x, this.y, this.w, this.h);
+    this.ctx.drawImage(this.imgFood, this.x, this.y - 50, this.w/2, this.h/2);
     this.ctx.font = '48px serif';
-    this.ctx.fillText(this.info.name,this.x, this.y);
+    this.ctx.textAlign = "end"
+    this.ctx.fillText(this.info.name,this.x - 20, this.y);
   }
 
   moveFoodsClouds = () => {
