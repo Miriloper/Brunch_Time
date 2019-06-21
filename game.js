@@ -68,7 +68,7 @@ class Game {
 
   drawScore = () => {
     this.ctx.fillText(this.score, 50, 50)
-    if (this.score >= 15) {
+    if (this.score >= 100) {
       this.stop()
 
     this.ctx.beginPath();
