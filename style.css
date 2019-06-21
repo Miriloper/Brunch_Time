@@ -58,7 +58,7 @@
   background: white;
   border-color: white;
   border-width: 10;
-  bottom: 10px;
+  bottom: 0px;
   width: 100vw;
   height: 70px;
   font-size: 30px;
@@ -68,5 +68,3 @@
 #canvasElem {
   display: none;
 }
-
-

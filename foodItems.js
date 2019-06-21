@@ -42,6 +42,8 @@ class FlyItems{
     this.info.name = ""
     //this.imgFood
     //crea image(this.imgFood) y la hago caer
+
+    scoreAsc(this.info.name.length);
   }
 
 }

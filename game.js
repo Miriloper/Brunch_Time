@@ -13,6 +13,7 @@ class Game {
     this.thisData = [...data]
     this.thisData = this.shuffleFoods(this.thisData)
     this.arrCounter = 0
+    this.scoreBoard = ScoreBoard;
   }
 
   init = (id) => {
@@ -20,6 +21,8 @@ class Game {
     this.canvas.width = this.w
     this.canvas.height = this.h
     this.ctx= this.canvas.getContext("2d");
+
+    this.scoreBoard.init(this.ctx);
 
 
     this.start();
@@ -35,12 +38,15 @@ class Game {
           this.generateFood();
         }
         this.moveAll();
+        
+
   
     },1000/this.fps)
   }
 
   reset = () => {
     this.counter = 0;
+    this.score = 0;
   }
 
   clear = () =>{
@@ -53,11 +59,21 @@ class Game {
   draw = ()=>{
     this.drawBackground()
     this.ctx.draw = document.getElementById("canvasTests");
-    this.drawClouds()
+    this.drawClouds();
+    this.drawScore();
+    
   }
 
   drawBackground = ()=>{
     this.ctx.drawImage(this.imgBackg, 0,0, this.w, this.h);
+  }
+
+  drawScore = () => {
+    this.scoreBoard.scoreAsc(this.score);
+    console.log(this.score)
+    if (this.score == 100) {
+      this.stop()
+    }
   }
 
   shuffleFoods= (a) => {

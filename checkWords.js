@@ -4,32 +4,32 @@ let filtClouds = [];
 
 window.addEventListener("keydown", function (e) {
   
-    document.getElementById("key").innerHTML = "";
-    document.getElementById("keyCode").innerHTML = "";
-    document.getElementById("wordsOK").innerHTML = "";
-    document.getElementById("resultEnt").innerHTML = "";
+    // document.getElementById("key").innerHTML = "";
+    // document.getElementById("keyCode").innerHTML = "";
+    // document.getElementById("wordsOK").innerHTML = "";
+    // document.getElementById("resultEnt").innerHTML = "";
     //clear cosas
   
   var key = e.key;
   
   if (isLetterOrSpace(key)) {
-    document.getElementById("key").innerHTML = e.key;   
+    // document.getElementById("key").innerHTML = e.key;   
     word += e.key;
     document.getElementById("word").innerHTML = word; 
     filtClouds = wordClouds.filter( wordCloud => wordCloud.startsWith(word));
     let wordsArray = (word.length == 0) ? wordClouds : filtClouds
-    document.getElementById("wordsOK").innerHTML = wordsArray;
+    // document.getElementById("wordsOK").innerHTML = wordsArray;
   }
   else if (e.keyCode == 13) {
-    document.getElementById("key").innerHTML = "ENTER";
+    // document.getElementById("key").innerHTML = "ENTER";
     if (filtClouds.length == 1) {
-      document.getElementById("resultEnt").innerHTML = areEqual(filtClouds[0], word);
+      // document.getElementById("resultEnt").innerHTML = areEqual(filtClouds[0], word);
       if(areEqual(filtClouds[0], word)){
         game.checkWord(word);
       }
     }
     else {
-      document.getElementById("resultEnt").innerHTML = "false";
+      // document.getElementById("resultEnt").innerHTML = "false";
     }
     word = ""; //esto clear la palabra
     document.getElementById("word").innerHTML = word;
@@ -39,7 +39,7 @@ window.addEventListener("keydown", function (e) {
     document.getElementById("word").innerHTML = word;
     if (word.length > 0) {
       let wordsArray = (word.length == 0) ? wordClouds : filtClouds
-      document.getElementById("wordsOK").innerHTML = wordsArray;
+      // document.getElementById("wordsOK").innerHTML = wordsArray;
     }
   }
   
